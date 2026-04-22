@@ -26,6 +26,11 @@ struct BoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    Task { @MainActor in
+                        try await UIApplication.shared.setAlternateIconName(nil)
+                    }
+                }
         }
         .modelContainer(sharedModelContainer)
     }
