@@ -17,4 +17,8 @@ public enum Images {
     static let homeSystemImage: String = "house.circle"
     static let userSystemImage: String = "person.crop.circle"
     static let searchSystemImage: String = "magnifyingglass"
+    
+    static let play = Image(systemName: "play.circle")
+    static let pause = Image(systemName: "pause.circle")
+    static let stop = Image(systemName: "stop.circle")
 }
