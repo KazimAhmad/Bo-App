@@ -80,7 +80,7 @@ struct AppTabView: View {
     func tabView(for tab: AppTab) -> some View {
         switch tab {
         case .home:
-            Text(tab.title)
+            HomeView()
                 .tag(tab)
         case .profile:
             Text(tab.title)
