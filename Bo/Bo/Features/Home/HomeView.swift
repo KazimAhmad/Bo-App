@@ -51,6 +51,8 @@ struct HomeView: View {
             )
             .tint(Color.second)
             HStack {
+                Text("Theme Song")
+                    .font(AppTypography.light12())
                 Spacer()
                 if audioManager.currentTime > 0 {
                     Button {

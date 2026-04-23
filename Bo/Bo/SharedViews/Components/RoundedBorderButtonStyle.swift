@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct YellowAndBlackButton: ButtonStyle {
+struct PurpleAndWhiteButton: ButtonStyle {
     var backgroundColor: Color = .accentColor
-    var textColor: Color = .black
+    var textColor: Color = .white
     
     var cornerRadius: CGFloat = 28
 
@@ -35,7 +35,7 @@ struct YellowAndBlackButton: ButtonStyle {
     }
 }
 
-struct YellowBorderButton: ButtonStyle {
+struct PurpleBorderButton: ButtonStyle {
     var backgroundColor: Color = .clear
     var borderColor: Color = .accentColor
     var textColor: Color = .accentColor
@@ -65,9 +65,9 @@ struct YellowBorderButton: ButtonStyle {
     }
 }
 
-struct GreenAndWhiteButton: ButtonStyle {
+struct YellowAndBlackButton: ButtonStyle {
     var backgroundColor: Color = .second
-    var textColor: Color = .white
+    var textColor: Color = .black
     
     var cornerRadius: CGFloat = 28
 
@@ -93,7 +93,7 @@ struct GreenAndWhiteButton: ButtonStyle {
     }
 }
 
-struct GreenBorderButton: ButtonStyle {
+struct YellowBorderButton: ButtonStyle {
     var backgroundColor: Color = .clear
     var borderColor: Color = .second
     var textColor: Color = .second
