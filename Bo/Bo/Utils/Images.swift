@@ -21,4 +21,11 @@ public enum Images {
     static let play = Image(systemName: "play.circle")
     static let pause = Image(systemName: "pause.circle")
     static let stop = Image(systemName: "stop.circle")
+    
+    static let starFill = Image(systemName: "star.fill")
+    
+    static let clock = Image(systemName: "clock")
+    
+    static let bookmark = Image(systemName: "bookmark")
+    static let bookmarked = Image(systemName: "bookmark.fill")
 }
