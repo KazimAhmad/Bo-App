@@ -8,7 +8,7 @@
 import Foundation
 
 extension SwiftServices {
-    func enterAsGuest() {
-        self.userSession.guest = true
+    func goForLogin() {
+        self.userSession.isAuthenticating = true
     }
 }

@@ -25,13 +25,20 @@ struct BoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear {
-                    Task { @MainActor in
-                        try await UIApplication.shared.setAlternateIconName(nil)
-                    }
-                }
+            MainView()
         }
         .modelContainer(sharedModelContainer)
+    }
+}
+
+struct MainView: View {
+    var session: Session = Session.current
+
+    var body: some View {
+        if session.isAuthenticating {
+            LoginView()
+        } else {
+            AppTabView()
+        }
     }
 }

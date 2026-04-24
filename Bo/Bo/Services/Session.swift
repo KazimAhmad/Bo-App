@@ -11,15 +11,13 @@ import Foundation
 class Session {
     static let current = Session()
 
-    var isAuthenticated: Bool = false
-    var guest: Bool = false
+    var isAuthenticating: Bool = false
     
     func logout() {
-        isAuthenticated = false
-        guest = false
+        isAuthenticating = false
     }
     
-    func skipLogin() {
-        guest = true
+    func goingForLogin() {
+        isAuthenticating = true
     }
 }
