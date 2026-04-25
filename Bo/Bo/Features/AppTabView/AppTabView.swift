@@ -83,7 +83,8 @@ struct AppTabView: View {
             HomeView()
                 .tag(tab)
         case .profile:
-            Text(tab.title)
+            ProfileView(viewModel: ProfileViewModel())
+                .tag(tab)
         case .search:
             Text(tab.title)
                 .tag(tab)

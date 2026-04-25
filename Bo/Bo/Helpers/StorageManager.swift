@@ -5,7 +5,24 @@
 //  Created by Kazim Ahmad on 24/04/2026.
 //
 
-import UIKit
+import SwiftUI
+
+enum AppIcon: String, CaseIterable {
+    case AppIcon
+    case AppIcon1
+    case AppIcon2
+    
+    var logo: Image {
+        switch self {
+        case .AppIcon:
+            return Image("logo")
+        case .AppIcon1:
+            return Image("logo1")
+        case .AppIcon2:
+            return Image("logo2")
+        }
+    }
+}
 
 enum UserDefaultsKeys: String, CaseIterable {
     case currentAppIcon
@@ -32,11 +49,6 @@ class StorageManager {
     }
     
     func updateAppIcon() {
-        enum AppIcon: String, CaseIterable {
-            case AppIcon1
-            case AppIcon2
-        }
-        
         if let appIcon = currentAppIcon {
             if appIcon == AppIcon.AppIcon1.rawValue {
                 currentAppIcon = AppIcon.AppIcon2.rawValue

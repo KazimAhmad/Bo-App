@@ -28,4 +28,9 @@ public enum Images {
     
     static let bookmark = Image(systemName: "bookmark")
     static let bookmarked = Image(systemName: "bookmark.fill")
+    
+    static let switchObject = Image(systemName: "arrow.left.arrow.right")
+    
+    static let mute = Image(systemName: "speaker.slash.fill")
+    static let unmute = Image(systemName: "speaker.wave.2")
 }

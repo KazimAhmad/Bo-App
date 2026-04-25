@@ -17,6 +17,17 @@ class AudioPlayerManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var currentTime: TimeInterval = 0
     @Published var duration: TimeInterval = 0
     
+    func setupAudioSession() {
+        let session = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setCategory(.playback, mode: .default, options: [.defaultToSpeaker])
+            try session.setActive(true)
+        } catch {
+            print("Audio session error: \(error.localizedDescription)")
+        }
+    }
+    
     func playSound(named fileName: String) {
         if let player = player {
             player.play()
@@ -31,6 +42,7 @@ class AudioPlayerManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
             player = try AVAudioPlayer(contentsOf: url)
             player?.delegate = self
             duration = player?.duration ?? 0
+            setupAudioSession()
             player?.play()
             isPlaying = true
             startTimer()
