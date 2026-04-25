@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @StateObject var viewModel: ProfileViewModel
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
                 viewModel.logo
                     .resizable()
@@ -29,9 +29,55 @@ struct ProfileView: View {
                 }
             }
             .padding()
-            List {
-                
+            loggedInView()
+            Spacer()
+        }
+        .foregroundStyle(Color.primary)
+    }
+    
+    func loggedInView() -> some View {
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
+                Text("Bojack Horseman")
+                    .font(AppTypography.medium(size: 24))
+                Text("thisismyemail@gmail.com")
+                    .tint(Color.primary)
+                    .font(AppTypography.lightApp())
             }
+            .padding()
+            List {
+                Button {
+
+                } label: {
+                    HStack {
+                        Text("Saved")
+                        Spacer()
+                        Images.chevronRight
+                    }
+                    .font(AppTypography.lightApp())
+                }
+            }
+            VStack {
+                HStack {
+                    Spacer()
+                    Images.diane
+                        .resizable()
+                        .frame(width: 60, height: 80)
+                        .padding(.leading, 120)
+                    Images.bojack
+                        .resizable()
+                        .frame(width: 60, height: 80)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, -8)
+                Button {
+                    
+                } label: {
+                    Text("Logout")
+                }
+                .buttonStyle(YellowAndBlackButton())
+            }
+            .padding()
         }
     }
 }

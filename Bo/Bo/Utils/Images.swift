@@ -33,4 +33,6 @@ public enum Images {
     
     static let mute = Image(systemName: "speaker.slash.fill")
     static let unmute = Image(systemName: "speaker.wave.2")
+    
+    static let chevronRight = Image(systemName: "chevron.right")
 }
