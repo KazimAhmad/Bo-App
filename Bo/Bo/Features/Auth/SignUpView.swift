@@ -9,36 +9,46 @@ import SwiftUI
 
 struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
-    
+    @Binding var isPresented: Bool
     var body: some View {
         VStack {
             headerView()
-            VStack {
-                AppTextField(title: "Email",
-                             text: $viewModel.username)
-                AppTextField(title: "Username",
-                             text: $viewModel.username)
-                AppTextField(title: "Password",
-                             text: $viewModel.password,
-                             isSecure: true)
-                HStack {
-                    Button {
-                        
-                    } label: {
-                        Text("Login")
+            ScrollView {
+                VStack(alignment: .leading) {
+                    if viewModel.showEmailError {
+                        Text("Email is not in correct format")
+                            .foregroundStyle(Color.red)
+                            .font(AppTypography.regular12())
                     }
-                    .buttonStyle(YellowAndBlackButton())
-                    
-                    Button {
+                    AppTextField(title: "Email",
+                                 text: $viewModel.email)
+                    AppTextField(title: "Username",
+                                 text: $viewModel.username)
+                    AppTextField(title: "Password",
+                                 text: $viewModel.password,
+                                 isSecure: true)
+                    HStack {
+                        Button {
+                            isPresented = false
+                        } label: {
+                            Text("Login")
+                        }
+                        .buttonStyle(YellowAndBlackButton())
                         
-                    } label: {
-                        Text("Sign Up")
+                        Button {
+                            viewModel.signUp()
+                        } label: {
+                            Text("Sign Up")
+                        }
+                        .buttonStyle(PurpleAndWhiteButton())
                     }
-                    .buttonStyle(PurpleAndWhiteButton())
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
+                .padding()
             }
-            .padding()
+        }
+        .onChange(of: viewModel.email) { oldValue, newValue in
+            viewModel.showEmailError = !newValue.isEmail
         }
     }
     
@@ -59,5 +69,6 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    @Previewable @State var isPresented: Bool = true
+    SignUpView(isPresented: $isPresented)
 }

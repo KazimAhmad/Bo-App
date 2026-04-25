@@ -11,4 +11,8 @@ extension SwiftServices {
     func goForLogin() {
         self.userSession.isAuthenticating = true
     }
+    
+    func createUser(on userEndpoint: UserEndpoint) async throws {
+        try await request(endpoint: userEndpoint)
+    }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
+    @State var goToSignUp: Bool = false
     
     var body: some View {
         VStack {
@@ -21,7 +22,7 @@ struct LoginView: View {
                              isSecure: true)
                 HStack {
                     Button {
-                        
+                        goToSignUp = true
                     } label: {
                         Text("Sign Up")
                     }
@@ -37,6 +38,9 @@ struct LoginView: View {
                 .padding(.vertical)
             }
             .padding()
+        }
+        .navigationDestination(isPresented: $goToSignUp) {
+            SignUpView(isPresented: $goToSignUp)
         }
     }
     

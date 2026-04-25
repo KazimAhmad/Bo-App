@@ -35,8 +35,10 @@ struct MainView: View {
     var session: Session = Session.current
 
     var body: some View {
-        if session.isAuthenticating {
-            LoginView()
+        if !session.isAuthenticating {
+            NavigationStack {
+                LoginView()                
+            }
         } else {
             AppTabView()
         }
